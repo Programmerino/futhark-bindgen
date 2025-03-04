@@ -20,7 +20,7 @@ const OCAML_CTYPES_MAP: &[(&str, &str)] = &[
     ("u32", "uint32_t"),
     ("i64", "int64_t"),
     ("u64", "uint64_t"),
-    ("f16", ""), // No half type in OCaml
+    ("f16", "float"), // Map f16 to float since OCaml doesn't have a native f16 type
     ("f32", "float"),
     ("f64", "double"),
     ("bool", "bool"),
@@ -35,7 +35,7 @@ const OCAML_TYPE_MAP: &[(&str, &str)] = &[
     ("i64", "int64"),
     ("u32", "UInt32.t"),
     ("u64", "UInt64.t"),
-    ("f16", ""), // No half type in OCaml
+    ("f16", "float"), // Map f16 to float since OCaml doesn't have a native f16 type
     ("f32", "float"),
     ("f64", "float"),
     ("bool", "bool"),
@@ -50,7 +50,7 @@ const OCAML_BA_TYPE_MAP: &[(&str, (&str, &str))] = &[
     ("i64", ("int64", "Bigarray.int64_elt")),
     ("u32", ("int32", "Bigarray.int32_elt")),
     ("u64", ("int64", "Bigarray.int64_elt")),
-    ("f16", ("", "")), // No half Bigarray kind
+    ("f16", ("float", "Bigarray.float32_elt")), // Map f16 to float32 bigarray
     ("f32", ("float", "Bigarray.float32_elt")),
     ("f64", ("float", "Bigarray.float64_elt")),
     ("bool", ("int", "Bigarray.int8_unsigned_elt")),
